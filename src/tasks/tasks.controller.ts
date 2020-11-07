@@ -1,8 +1,14 @@
-import { Controller } from '@nestjs/common';
+import { Get, Controller } from '@nestjs/common';
+import { TasksService } from './tasks.service';
 
 @Controller('tasks')
 export class TasksController {
-    // add handlers for get, post, patch and delete here
+    constructor(private tasksService: TasksService) {}
+
+    @Get()
+    getAllTasks() {
+        return this.tasksService.getAllTasks();
+    }
 }
 
 // tasks controller generated using cli command: nest g controller tasks --no-spec
