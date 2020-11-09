@@ -37,4 +37,10 @@ export class TasksService {
             this.tasks.splice(found, 1);
         }
     }
+
+    updateTask(id: string, status: TaskStatus): Task {
+        const task = this.getTaskById(id);
+        task.status = status;
+        return task;
+    }
 }
