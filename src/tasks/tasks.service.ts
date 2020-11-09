@@ -30,4 +30,11 @@ export class TasksService {
         });
         return task;
     }
+
+    deleteTask(id: string): void {
+        const found = this.tasks.findIndex((task) => task.id === id);
+        if (found !== -1) {
+            this.tasks.splice(found, 1);
+        }
+    }
 }
