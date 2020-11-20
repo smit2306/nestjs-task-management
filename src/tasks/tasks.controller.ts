@@ -10,6 +10,9 @@ import {
     Query,
     // class decorator
     Controller,
+    // validation pipes
+    UsePipes,
+    ValidationPipe,
 } from '@nestjs/common';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { GetTasksFilterDto } from './dto/get-tasks-filter.dto';
@@ -37,6 +40,7 @@ export class TasksController {
     }
 
     @Post()
+    @UsePipes(ValidationPipe)
     createTask(@Body() createTaskDto: CreateTaskDto): Task {
         // request body = {'title': 'some title', 'description': 'some desc'}
 
